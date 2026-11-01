@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.carpooling.controller.TripListController"
+      styleClass="view-root" spacing="16">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <Label text="🔍 Parcourir les Trajets" styleClass="view-title"/>
+
+    <!-- Search Bar -->
+    <VBox styleClass="search-bar" spacing="15">
+        <HBox spacing="12" alignment="CENTER_LEFT">
+            <TextField fx:id="departureSearchField" promptText="📍 Ville de départ..."
+                       styleClass="text-field-styled" HBox.hgrow="ALWAYS" id="searchDepartureField"/>
+            <TextField fx:id="destinationSearchField" promptText="🏁 Ville d'arrivée..."
+                       styleClass="text-field-styled" HBox.hgrow="ALWAYS" id="searchDestinationField"/>
+            <Button text="🔍 Rechercher" onAction="#handleSearch"
+                    styleClass="btn-primary" prefWidth="150" id="searchBtn"/>
+            <Button text="✕" onAction="#handleClearSearch"
+                    styleClass="btn-secondary" id="clearSearchBtn"/>
+        </HBox>
+        <Separator/>
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="Réserver:" styleClass="field-label"/>
+            <Spinner fx:id="seatsToReserveSpinner" prefWidth="90"
+                     styleClass="spinner-styled" editable="true" id="reserveSeatsSpinner"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="viewProfileButton" text="👤 Voir Profil" onAction="#handleViewProfile"
+                    styleClass="btn-secondary" id="viewProfileBtn"/>
+            <Button fx:id="reserveButton" text="Réserver" onAction="#handleReserve"
+                    styleClass="btn-primary" prefWidth="180" id="reserveBtn"/>
+            <Button fx:id="cancelTripButton" text="❌ Annuler Trajet" onAction="#handleCancelTrip"
+                    styleClass="btn-danger-small" id="cancelTripBtn"/>
+        </HBox>
+    </VBox>
+
+    <!-- List of Trips as Cards -->
+    <ListView fx:id="tripListView" VBox.vgrow="ALWAYS" styleClass="list-view-styled">
+        <placeholder><Label text="Aucun trajet trouvé." styleClass="text-muted"/></placeholder>
+    </ListView>
+</VBox>
+

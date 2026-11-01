@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="CENTER" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carpooling.controller.ReviewController" styleClass="root">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Évaluer le conducteur" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -cp-text;"/>
+
+    <VBox spacing="5" maxWidth="300">
+        <Label text="Note (1-5 étoiles)" style="-fx-text-fill: -cp-text;"/>
+        <ComboBox fx:id="ratingBox" prefWidth="300"/>
+    </VBox>
+
+    <VBox spacing="5" maxWidth="300">
+        <Label text="Commentaire" style="-fx-text-fill: -cp-text;"/>
+        <TextArea fx:id="commentArea" prefRowCount="4" promptText="Laissez un commentaire..." wrapText="true" styleClass="input-field"/>
+    </VBox>
+
+    <HBox spacing="15" alignment="CENTER_RIGHT" maxWidth="300" style="-fx-padding: 10 0 0 0;">
+        <Button text="Annuler" onAction="#handleCancel" styleClass="button-secondary"/>
+        <Button text="Soumettre" onAction="#handleSubmit" styleClass="button-primary"/>
+    </HBox>
+</VBox>

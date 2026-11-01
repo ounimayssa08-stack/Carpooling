@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.carpooling.controller.DashboardController"
+            styleClass="dashboard-root">
+
+    <!-- TOP BAR -->
+    <top>
+        <HBox styleClass="top-bar" alignment="CENTER_LEFT" spacing="20">
+            <Label text="🚗 CarPooling" styleClass="top-brand" style="-fx-text-fill: -cp-accent;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <StackPane>
+                <Button text="🔔" onAction="#handleNotifications"
+                        styleClass="btn-icon" id="notifBtn"/>
+                <Label fx:id="notificationBadge" text="0" styleClass="notif-badge"
+                       visible="false" mouseTransparent="true"
+                       StackPane.alignment="TOP_RIGHT"/>
+            </StackPane>
+            <Separator orientation="VERTICAL" maxHeight="30"/>
+            <VBox alignment="CENTER_RIGHT" spacing="2">
+                <Label fx:id="userNameLabel" text="User" styleClass="top-user-name"/>
+                <Label fx:id="userRoleLabel" text="Role" styleClass="top-user-role"/>
+            </VBox>
+            <Button text="Déconnexion" onAction="#handleLogout"
+                    styleClass="btn-danger-small" id="logoutBtn"/>
+        </HBox>
+    </top>
+
+    <!-- SIDEBAR -->
+    <left>
+        <VBox styleClass="sidebar" spacing="4" prefWidth="200">
+            <Label fx:id="clientSectionLabel" text="ESPACE CLIENT" styleClass="sidebar-section-label"/>
+            <Button fx:id="tripListBtn" text="🔍  Parcourir les Trajets" onAction="#handleTripList"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarTripsBtn"/>
+            <Button fx:id="myReservationsBtn" text="📋  Mes Réservations"
+                    onAction="#handleMyReservations"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarReservationsBtn"/>
+            <Button fx:id="paymentMethodsBtn" text="💳  Moyens de paiement" onAction="#handlePaymentMethods"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarPaymentBtn"/>
+            <Button fx:id="sidebarNotifBtn" text="🔔  Notifications" onAction="#handleNotificationsView"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarNotifBtn"/>
+            <Button fx:id="reviewsBtn" text="⭐  Mes Avis" onAction="#handleReviews"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarReviewsBtn"/>
+
+            <Separator fx:id="sidebarSeparator" prefWidth="150" style="-fx-padding: 10 0 10 0;"/>
+            <Label fx:id="driverSectionLabel" text="ESPACE CHAUFFEUR" styleClass="sidebar-section-label" style="-fx-padding: 0 12 8 12;"/>
+            <Button fx:id="myTripsBtn" text="🗺  Mes Trajets" onAction="#handleMyTrips"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarMyTripsBtn"/>
+            <Button fx:id="createTripBtn" text="➕  Créer un Trajet" onAction="#handleCreateTrip"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarCreateTripBtn"/>
+            <Button fx:id="vehiclesBtn" text="🚙  Mes Véhicules" onAction="#handleVehicles"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarVehiclesBtn"/>
+
+            <Region VBox.vgrow="ALWAYS" />
+            <Button fx:id="myAccountBtn" text="👤  Mon Compte" onAction="#handleAccount"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarAccountBtn"/>
+            <Button fx:id="adminStatsBtn" text="📊  Statistiques" onAction="#handleAdminStats"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarStatsBtn"/>
+            <Button fx:id="adminBtn" text="🛡  Panneau Admin" onAction="#handleAdmin"
+                    styleClass="sidebar-btn" maxWidth="Infinity" id="sidebarAdminBtn"/>
+        </VBox>
+    </left>
+
+    <!-- CONTENT AREA -->
+    <center>
+        <StackPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+
+</BorderPane>
+

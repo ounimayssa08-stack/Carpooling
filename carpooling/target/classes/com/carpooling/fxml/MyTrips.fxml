@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.carpooling.controller.MyTripsController"
+      styleClass="view-root" spacing="16">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="🗺 Mes Trajets" styleClass="view-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="↻ Actualiser" onAction="#handleRefresh"
+                styleClass="btn-secondary" id="refreshMyTripsBtn"/>
+    </HBox>
+
+    <ListView fx:id="tripListView" VBox.vgrow="ALWAYS" styleClass="list-view-styled">
+        <placeholder><Label text="Aucun trajet créé pour le moment." styleClass="text-muted"/></placeholder>
+    </ListView>
+
+    <HBox spacing="12">
+        <Button fx:id="startTripBtn" text="▶ Démarrer" onAction="#handleStartTrip"
+                styleClass="btn-primary" id="startTripBtn"/>
+        <Button fx:id="endTripBtn" text="⏹ Terminer" onAction="#handleEndTrip"
+                styleClass="btn-primary" id="endTripBtn"/>
+        <Button fx:id="manageReservationsBtn" text="👥 Gérer les Réservations" onAction="#handleManageReservations"
+                styleClass="btn-primary" id="manageReservationsBtn"/>
+        <Button fx:id="cancelTripBtn" text="❌ Annuler le Trajet" onAction="#handleCancelTrip"
+                styleClass="btn-danger" id="cancelMyTripBtn"/>
+    </HBox>
+</VBox>
+

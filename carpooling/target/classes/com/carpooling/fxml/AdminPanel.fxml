@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.carpooling.controller.AdminController"
+      styleClass="view-root" spacing="16">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <Label text="🛡 Admin Panel" styleClass="view-title"/>
+
+    <TabPane VBox.vgrow="ALWAYS" styleClass="tab-pane-styled">
+
+        <!-- USERS TAB -->
+        <Tab text="👥 Users" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="12"/></padding>
+                <TableView fx:id="userTable" prefHeight="420" styleClass="table-view-styled">
+                    <columns>
+                        <TableColumn fx:id="userNameCol"     text="Name"     prefWidth="150"/>
+                        <TableColumn fx:id="userEmailCol"    text="Email"    prefWidth="200"/>
+                        <TableColumn fx:id="userRoleCol"     text="Role"     prefWidth="100"/>
+                        <TableColumn fx:id="userStatusCol"   text="Status"   prefWidth="100"/>
+                        <TableColumn fx:id="userAttemptsCol" text="Attempts" prefWidth="80"/>
+                    </columns>
+                    <placeholder><Label text="No users found." styleClass="text-muted"/></placeholder>
+                </TableView>
+                <HBox spacing="12">
+                    <Button fx:id="suspendBtn" text="🚫 Suspend User" onAction="#handleSuspend"
+                            styleClass="btn-danger" id="suspendUserBtn"/>
+                    <Button fx:id="activateBtn" text="✅ Activate User" onAction="#handleActivate"
+                            styleClass="btn-success" id="activateUserBtn"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="↻ Refresh" onAction="#handleRefreshUsers"
+                            styleClass="btn-secondary" id="refreshUsersBtn"/>
+                </HBox>
+            </VBox>
+        </Tab>
+
+        <!-- TRIPS TAB -->
+        <Tab text="🚗 All Trips" closable="false">
+            <VBox spacing="12">
+                <padding><Insets top="12"/></padding>
+                <TableView fx:id="tripTable" prefHeight="420" styleClass="table-view-styled">
+                    <columns>
+                        <TableColumn fx:id="tripDriverCol"      text="Driver"  prefWidth="130"/>
+                        <TableColumn fx:id="tripDepartureCol"   text="From"    prefWidth="120"/>
+                        <TableColumn fx:id="tripDestinationCol" text="To"      prefWidth="120"/>
+                        <TableColumn fx:id="tripDateCol"        text="Date"    prefWidth="150"/>
+                        <TableColumn fx:id="tripSeatsCol"       text="Seats"   prefWidth="70"/>
+                        <TableColumn fx:id="tripStatusCol"      text="Status"  prefWidth="100"/>
+                    </columns>
+                    <placeholder><Label text="No trips found." styleClass="text-muted"/></placeholder>
+                </TableView>
+                <HBox>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="↻ Refresh" onAction="#handleRefreshTrips"
+                            styleClass="btn-secondary" id="refreshTripsBtn"/>
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox>
+

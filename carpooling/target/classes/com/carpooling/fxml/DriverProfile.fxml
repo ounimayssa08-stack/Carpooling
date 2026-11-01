@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="20" alignment="TOP_CENTER" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.carpooling.controller.DriverProfileController" styleClass="root">
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <Label text="👤 Profil du Conducteur" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -cp-accent;"/>
+
+    <VBox spacing="10" alignment="CENTER" styleClass="form-card">
+        <Label fx:id="nameLabel" text="Nom du Conducteur" styleClass="card-title"/>
+        <Label fx:id="emailLabel" text="email@example.com" styleClass="text-muted"/>
+        <HBox spacing="10" alignment="CENTER">
+            <Label fx:id="ratingLabel" text="0.0 ⭐" style="-fx-font-size: 20px; -fx-text-fill: #FB8C00; -fx-font-weight: bold;"/>
+            <Label fx:id="reviewCountLabel" text="(0 avis)" styleClass="text-muted"/>
+        </HBox>
+    </VBox>
+
+    <Label text="Avis des passagers" styleClass="field-label" alignment="CENTER_LEFT" maxWidth="Infinity"/>
+
+    <TableView fx:id="reviewTable" VBox.vgrow="ALWAYS" prefHeight="250" prefWidth="550" styleClass="table-view-styled">
+        <columns>
+            <TableColumn fx:id="passengerCol" text="Passager" prefWidth="130"/>
+            <TableColumn fx:id="ratingCol" text="Note" prefWidth="100"/>
+            <TableColumn fx:id="commentCol" text="Commentaire" prefWidth="300"/>
+        </columns>
+    </TableView>
+
+    <HBox alignment="CENTER_RIGHT">
+        <Button text="Fermer" onAction="#handleClose" styleClass="btn-secondary"/>
+    </HBox>
+</VBox>

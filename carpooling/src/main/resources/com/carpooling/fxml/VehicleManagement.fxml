@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.carpooling.controller.VehicleController"
+      styleClass="view-root" spacing="20">
+
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label text="🚙 Mes Véhicules" styleClass="view-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+
+        <!-- Table -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <TableView fx:id="vehicleTable" VBox.vgrow="ALWAYS" styleClass="table-view-styled">
+                <columns>
+                    <TableColumn fx:id="brandCol" text="Marque" prefWidth="120"/>
+                    <TableColumn fx:id="modelCol" text="Modèle" prefWidth="150"/>
+                    <TableColumn fx:id="plateCol" text="Immatriculation" prefWidth="130"/>
+                    <TableColumn fx:id="seatsCol" text="Places" prefWidth="80"/>
+                </columns>
+                <placeholder><Label text="Aucun véhicule enregistré." styleClass="text-muted"/></placeholder>
+            </TableView>
+            <HBox spacing="10">
+                <Button fx:id="deleteButton" text="🗑 Supprimer" onAction="#handleDelete"
+                        styleClass="btn-danger" disable="true" id="deleteVehicleBtn"/>
+                <Button fx:id="clearButton" text="✕ Effacer" onAction="#handleClear"
+                        styleClass="btn-secondary" id="clearVehicleBtn"/>
+            </HBox>
+        </VBox>
+
+        <!-- Form Panel -->
+        <VBox styleClass="form-card" spacing="16" prefWidth="280">
+            <Label text="Détails du Véhicule" styleClass="card-title"/>
+            <VBox spacing="6">
+                <Label text="Marque" styleClass="field-label"/>
+                <TextField fx:id="brandField" promptText="ex. Renault"
+                           styleClass="text-field-styled" id="vehicleBrandField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Modèle" styleClass="field-label"/>
+                <TextField fx:id="modelField" promptText="ex. Clio"
+                           styleClass="text-field-styled" id="vehicleModelField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Immatriculation" styleClass="field-label"/>
+                <TextField fx:id="plateField" promptText="ex. 123 TUN 4567"
+                           styleClass="text-field-styled" id="vehiclePlateField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Places" styleClass="field-label"/>
+                <Spinner fx:id="seatsSpinner" styleClass="spinner-styled"
+                         editable="true" id="vehicleSeatsSpinner"/>
+            </VBox>
+            <Button fx:id="saveButton" text="Ajouter Véhicule" onAction="#handleSave"
+                    styleClass="btn-primary" maxWidth="Infinity" id="saveVehicleBtn"/>
+        </VBox>
+    </HBox>
+</VBox>
+

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.carpooling.controller.PaymentMethodsController"
+      styleClass="view-root" spacing="20">
+    <padding><Insets top="24" right="24" bottom="24" left="24"/></padding>
+
+    <Label text="💳 Mes Moyens de Paiement" styleClass="view-title"/>
+
+    <HBox spacing="20" VBox.vgrow="ALWAYS">
+        <!-- Form -->
+        <VBox spacing="15" prefWidth="350" styleClass="form-card">
+            <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+            <Label text="Ajouter une carte" styleClass="card-title"/>
+            
+            <VBox spacing="5">
+                <Label text="Numéro de carte" styleClass="field-label"/>
+                <TextField fx:id="cardNumberField" promptText="0000 0000 0000 0000" styleClass="text-field-styled"/>
+            </VBox>
+
+            <HBox spacing="10">
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label text="Expiration (MM/YY)" styleClass="field-label"/>
+                    <TextField fx:id="expiryField" promptText="12/26" styleClass="text-field-styled"/>
+                </VBox>
+                <VBox spacing="5" prefWidth="80">
+                    <Label text="CVV" styleClass="field-label"/>
+                    <PasswordField fx:id="cvvField" promptText="123" styleClass="text-field-styled"/>
+                </VBox>
+            </HBox>
+
+            <Button text="Ajouter la carte" onAction="#handleAddCard"
+                    styleClass="btn-primary" maxWidth="Infinity" style="-fx-margin-top: 10;"/>
+        </VBox>
+
+        <!-- List -->
+        <VBox spacing="10" HBox.hgrow="ALWAYS">
+            <Label text="Mes cartes sauvegardées" styleClass="field-label"/>
+            <ListView fx:id="cardListView" VBox.vgrow="ALWAYS" styleClass="list-view-styled">
+                <placeholder><Label text="Aucune carte enregistrée." styleClass="text-muted"/></placeholder>
+            </ListView>
+        </VBox>
+    </HBox>
+</VBox>

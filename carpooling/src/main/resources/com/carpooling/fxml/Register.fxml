@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.carpooling.controller.RegisterController"
+           styleClass="auth-root">
+
+    <VBox styleClass="auth-card" alignment="CENTER" spacing="0">
+
+        <VBox alignment="CENTER" styleClass="auth-header" spacing="4">
+            <Label text="🚗" styleClass="auth-logo"/>
+            <Label text="Créer un compte" styleClass="auth-title"/>
+            <Label text="Rejoignez la communauté de covoiturage" styleClass="auth-subtitle"/>
+        </VBox>
+
+        <VBox spacing="14" styleClass="auth-form">
+            <VBox spacing="6">
+                <Label text="Nom complet" styleClass="field-label"/>
+                <TextField fx:id="nameField" promptText="Foulen Ben Foulen"
+                           styleClass="text-field-styled" id="regNameField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Adresse Email" styleClass="field-label"/>
+                <TextField fx:id="emailField" promptText="vous@exemple.com"
+                           styleClass="text-field-styled" id="regEmailField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Mot de passe" styleClass="field-label"/>
+                <PasswordField fx:id="passwordField" promptText="Min. 6 caractères"
+                               styleClass="text-field-styled" id="regPasswordField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Confirmer le mot de passe" styleClass="field-label"/>
+                <PasswordField fx:id="confirmPasswordField" promptText="Répétez le mot de passe"
+                               styleClass="text-field-styled" id="regConfirmField"/>
+            </VBox>
+            <VBox spacing="6">
+                <Label text="Je suis un..." styleClass="field-label"/>
+                <ChoiceBox fx:id="roleChoiceBox" maxWidth="Infinity"
+                           styleClass="choice-box-styled" id="regRoleChoice"/>
+            </VBox>
+
+            <Button fx:id="registerButton" text="Créer un compte" onAction="#handleRegister"
+                    styleClass="btn-primary" maxWidth="Infinity" id="registerButton"/>
+
+            <HBox alignment="CENTER" spacing="6">
+                <Label text="Vous avez déjà un compte ?" styleClass="text-muted"/>
+                <Hyperlink fx:id="loginLink" text="Se connecter"
+                           onAction="#handleLoginLink" styleClass="link"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</StackPane>
+
